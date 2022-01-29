@@ -59,7 +59,7 @@ function addAppleNumber() {
   applesNumber++;
   document.getElementById("header-apple-number").innerHTML = applesNumber;
 
-  if (applesNumber === 1) {
+  if (applesNumber === BOARD_SIZE * BOARD_SIZE) {
     youWin();
   }
 }

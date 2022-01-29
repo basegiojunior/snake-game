@@ -21,7 +21,7 @@ function start() {
 
   intervalId = setInterval(() => {
     if (!isPaused) moveSnake();
-  }, 500);
+  }, 250);
 }
 
 function resetGame() {

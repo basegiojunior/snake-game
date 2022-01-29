@@ -30,6 +30,7 @@ function resetGame() {
   document.getElementById("restart").style.display = "none";
   document.getElementById("game-container").style.opacity = "1";
   document.getElementById("game-container").style.pointerEvents = "all";
+  document.getElementById("header-apple-number").innerHTML = "0";
   startElements();
   renderBoard();
 

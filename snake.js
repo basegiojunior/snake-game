@@ -30,6 +30,7 @@ function resetGame() {
   document.getElementById("restart").style.display = "none";
   document.getElementById("game-container").style.opacity = "1";
   document.getElementById("game-container").style.pointerEvents = "all";
+  document.getElementById("header-apple-number").innerHTML = "0";
   startElements();
   renderBoard();
 
@@ -59,7 +60,7 @@ function addAppleNumber() {
   applesNumber++;
   document.getElementById("header-apple-number").innerHTML = applesNumber;
 
-  if (applesNumber === 1) {
+  if (applesNumber === BOARD_SIZE * BOARD_SIZE) {
     youWin();
   }
 }
@@ -86,7 +87,6 @@ function toMove(futureCell) {
 }
 
 function moveSnake() {
-  console.log(directionQueue);
   if (directionQueue.length > 1) {
     directionQueue.shift();
   }
@@ -163,11 +163,24 @@ function sortRandomCell(multiplier, adder = 0) {
 }
 
 function resetApple() {
-  const randomCellApple = sortRandomCell();
-  apple.col = randomCellApple.col;
-  apple.row = randomCellApple.row;
+  let tempCells = [];
 
-  return randomCellApple;
+  for (let i = 0; i < BOARD_SIZE; i++) {
+    for (let e = 0; e < BOARD_SIZE; e++) {
+      tempCells.push({ col: i, row: e });
+    }
+  }
+
+  snake.forEach((square) => {
+    tempCells = tempCells.filter((item) => !isEqual(square, item));
+  });
+
+  const indexSorted = Math.floor(Math.random() * tempCells.length);
+
+  apple.col = tempCells[indexSorted].col;
+  apple.row = tempCells[indexSorted].row;
+
+  return tempCells[indexSorted];
 }
 
 function startElements() {
@@ -201,9 +214,6 @@ function startElements() {
   ) {
     randomCellApple = resetApple();
   }
-
-  console.log("snake -> ", snake);
-  console.log("apple -> ", apple);
 }
 
 function buildBoard() {

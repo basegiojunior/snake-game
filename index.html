@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <title>Snake Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="game-header">
+        <div>
+          <div id="header-apple-number">0</div>
+          <div id="apple-header"></div>
+        </div>
+
+        <button id="restart-header" onclick="resetGame()">Restart</button>
+      </div>
+      <div id="game"></div>
+    </div>
+
+    <div id="game-over" class="end-game-text game-over">GAME OVER</div>
+    <div id="win" class="end-game-text win">YOU WIN!</div>
+    <button id="restart" onclick="resetGame()">Restart</button>
+
+    <script src="snake.js"></script>
+  </body>
+</html>

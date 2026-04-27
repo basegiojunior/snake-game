@@ -4,7 +4,7 @@ Snake Game created using html, css and javascript
 
 ### Instructions
 
-- Open the link: [Snake Game](https://snake-game-basegio.herokuapp.com/)
+- Open the link: [Snake Game](https://snake-game.basegiojunior.workers.dev/)
 
 or
 
